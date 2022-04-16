@@ -13,7 +13,7 @@ public class KnightTest {
 
     @Before
     public void before() {
-        knight = new Knight(Weapon.MACE);
+        knight = new Knight(Weapon.MACE, 140, 24, "Arthur", "Human", "Male");
     }
 
     @Test

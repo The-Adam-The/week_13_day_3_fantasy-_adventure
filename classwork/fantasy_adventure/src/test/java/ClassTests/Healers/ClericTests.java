@@ -13,7 +13,7 @@ public class ClericTests {
 
     @Before
     public void before() {
-        cleric = new Cleric(HealingItem.STAFFOFAESCLIPIUS);
+        cleric = new Cleric(HealingItem.STAFFOFAESCLIPIUS, 100, 35, "Alius", "Dragonkin", "male");
     }
 
     @Test
@@ -21,4 +21,28 @@ public class ClericTests {
         assertEquals(HealingItem.STAFFOFAESCLIPIUS, cleric.getHealingItem());
     }
 
+    @Test
+    public void hasTotalHealth() {
+        assertEquals(100, cleric.getTotalHealth(), 0.1);
+    }
+
+    @Test
+    public void hasAge() {
+        assertEquals(35, cleric.getAge());
+    }
+
+    @Test
+    public void hasName() {
+        assertEquals("Alius", cleric.getName());
+    }
+
+    @Test
+    public void hasRace() {
+        assertEquals("Dragonkin", cleric.getRace());
+    }
+
+    @Test
+    public void hasGender() {
+        assertEquals("male", cleric.getGender());
+    }
 }

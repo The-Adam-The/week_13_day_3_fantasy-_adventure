@@ -16,7 +16,7 @@ public class WarlockTest {
 
     @Before
     public void before() {
-        warlock = new Warlock(Familiar.VOIDLING);
+        warlock = new Warlock(Familiar.VOIDLING, 90, 311, "Maliketh", "Obsidianite", "n/a");
     }
 
     @Test
@@ -31,4 +31,30 @@ public class WarlockTest {
         warlock.addSpell(Spell.DETECTMAGIC);
         assertEquals(Arrays.asList(Spell.SHADOWBOLT, Spell.CONFLAGARATE, Spell.DETECTMAGIC), warlock.getSpells());
     }
+
+    @Test
+    public void hasTotalHealth() {
+        assertEquals(90, warlock.getTotalHealth(), 0.1);
+    }
+
+    @Test
+    public void hasAge() {
+        assertEquals(311, warlock.getAge());
+    }
+
+    @Test
+    public void hasName() {
+        assertEquals("Maliketh", warlock.getName());
+    }
+
+    @Test
+    public void hasRace() {
+        assertEquals("Obsidianite", warlock.getRace());
+    }
+
+    @Test
+    public void hasGender() {
+        assertEquals("n/a", warlock.getGender());
+    }
+
 }

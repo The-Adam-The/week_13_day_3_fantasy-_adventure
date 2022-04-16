@@ -16,7 +16,7 @@ public class WizardTest {
 
     @Before
     public void before() {
-        wizard = new Wizard(Familiar.DRAGON);
+        wizard = new Wizard(Familiar.DRAGON, 80, 88, "Merl", "Human", "male");
     }
 
     @Test
@@ -30,5 +30,30 @@ public class WizardTest {
         wizard.addSpell(Spell.LIGHTNINGSTRIKE);
         wizard.addSpell(Spell.MAGICMISSILE);
         assertEquals(Arrays.asList(Spell.FIREBALL, Spell.LIGHTNINGSTRIKE, Spell.MAGICMISSILE), wizard.getSpells());
+    }
+
+    @Test
+    public void hasTotalHealth() {
+        assertEquals(80, wizard.getTotalHealth(), 0.1);
+    }
+
+    @Test
+    public void hasAge() {
+        assertEquals(88, wizard.getAge());
+    }
+
+    @Test
+    public void hasName() {
+        assertEquals("Merl", wizard.getName());
+    }
+
+    @Test
+    public void hasRace() {
+        assertEquals("Human", wizard.getRace());
+    }
+
+    @Test
+    public void hasGender() {
+        assertEquals("male", wizard.getGender());
     }
 }

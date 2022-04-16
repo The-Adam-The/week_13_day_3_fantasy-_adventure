@@ -13,7 +13,7 @@ public class GladiatorTest {
 
     @Before
     public void before() {
-        gladiator = new Gladiator(Weapon.SPEAR);
+        gladiator = new Gladiator(Weapon.SPEAR, 140, 22, "Pantheon", "Numean", "Male");
     }
 
     @Test
