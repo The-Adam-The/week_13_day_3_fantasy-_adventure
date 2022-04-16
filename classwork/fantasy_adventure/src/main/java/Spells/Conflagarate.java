@@ -4,9 +4,10 @@ import Behaviours.IAttack;
 import Behaviours.ISpell;
 import Behaviours.ITakeDamage;
 
-public class Conflagarate implements IAttack, ISpell {
+public class Conflagarate extends Spell implements ISpell {
 
-    public void attack(ITakeDamage target) {
-        target.takeDamage(90);
+    public Conflagarate(int manaCost) {
+        super(manaCost, 90);
     }
+
 }

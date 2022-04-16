@@ -4,9 +4,9 @@ import Behaviours.IAttack;
 import Behaviours.ISpell;
 import Behaviours.ITakeDamage;
 
-public class LightningStrike implements IAttack, ISpell {
+public class LightningStrike extends Spell implements ISpell {
 
-    public void attack(ITakeDamage target) {
-        target.takeDamage(70);
+    public LightningStrike(int manaCost){
+        super(manaCost, 200);
     }
 }

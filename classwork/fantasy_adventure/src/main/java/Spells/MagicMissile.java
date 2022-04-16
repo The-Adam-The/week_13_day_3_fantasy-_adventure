@@ -4,9 +4,9 @@ import Behaviours.IAttack;
 import Behaviours.ISpell;
 import Behaviours.ITakeDamage;
 
-public class MagicMissile implements IAttack, ISpell {
+public class MagicMissile extends Spell implements ISpell {
 
-    public void attack(ITakeDamage target) {
-        target.takeDamage(30);
+    public MagicMissile(int manaCost) {
+        super(manaCost, 30);
     }
 }

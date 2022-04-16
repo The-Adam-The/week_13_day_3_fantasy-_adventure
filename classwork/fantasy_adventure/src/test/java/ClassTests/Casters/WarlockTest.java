@@ -6,7 +6,6 @@ import Familiars.Familiar;
 import Spells.Conflagarate;
 import Spells.DetectMagic;
 import Spells.ShadowBolt;
-import Spells.Spell;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,10 +23,10 @@ public class WarlockTest {
     @Before
     public void before() {
 
-        shadowBolt = new ShadowBolt();
-        conflagarate = new Conflagarate();
-        detectMagic = new DetectMagic();
-        warlock = new Warlock(Familiar.VOIDLING, 90, 311, "Maliketh", "Obsidianite", "n/a");
+        shadowBolt = new ShadowBolt(40);
+        conflagarate = new Conflagarate(150);
+        detectMagic = new DetectMagic(20);
+        warlock = new Warlock(Familiar.VOIDLING, 90, 311, "Maliketh", "Obsidianite", "n/a", 200);
     }
 
     @Test
@@ -68,4 +67,19 @@ public class WarlockTest {
         assertEquals("n/a", warlock.getGender());
     }
 
+    @Test
+    public void hasTotalMana() {
+        assertEquals(200, warlock.getTotalMana());
+    }
+
+    @Test
+    public void hasCurrentMana() {
+        assertEquals(200, warlock.getCurrentMana());
+    }
+
+    @Test
+    public void canConsumeMana() {
+        warlock.consumeMana(50);
+        assertEquals(150, warlock.getCurrentMana());
+    }
 }

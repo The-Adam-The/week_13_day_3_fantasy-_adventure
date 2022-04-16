@@ -22,11 +22,11 @@ public class WizardTest {
 
     @Before
     public void before() {
-        fireBall = new FireBall();
-        lightningStrike = new LightningStrike();
-        magicMissile = new MagicMissile();
+        fireBall = new FireBall(130);
+        lightningStrike = new LightningStrike(150);
+        magicMissile = new MagicMissile(30);
 
-        wizard = new Wizard(Familiar.DRAGON, 80, 88, "Merl", "Human", "male");
+        wizard = new Wizard(Familiar.DRAGON, 80, 88, "Merl", "Human", "male", 250);
     }
 
     @Test
@@ -65,5 +65,21 @@ public class WizardTest {
     @Test
     public void hasGender() {
         assertEquals("male", wizard.getGender());
+    }
+
+    @Test
+    public void hasTotalMana() {
+        assertEquals(250, wizard.getTotalMana());
+    }
+
+    @Test
+    public void hasCurrentMana() {
+        assertEquals(250, wizard.getCurrentMana());
+    }
+
+    @Test
+    public void canConsumeMana() {
+        wizard.consumeMana(50);
+        assertEquals(200, wizard.getCurrentMana());
     }
 }

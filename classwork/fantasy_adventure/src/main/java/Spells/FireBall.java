@@ -4,9 +4,10 @@ import Behaviours.IAttack;
 import Behaviours.ISpell;
 import Behaviours.ITakeDamage;
 
-public class FireBall implements IAttack, ISpell {
+public class FireBall extends Spell implements ISpell {
 
-    public void attack(ITakeDamage target) {
-        target.takeDamage(70);
+    public FireBall(int manaCost){
+        super(manaCost,120);
     }
+
 }
