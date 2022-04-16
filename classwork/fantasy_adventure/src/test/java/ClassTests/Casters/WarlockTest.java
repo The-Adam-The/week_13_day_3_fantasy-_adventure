@@ -1,7 +1,11 @@
 package ClassTests.Casters;
 
+import Behaviours.ISpell;
 import Classes.Casters.Warlock;
 import Familiars.Familiar;
+import Spells.Conflagarate;
+import Spells.DetectMagic;
+import Spells.ShadowBolt;
 import Spells.Spell;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +17,16 @@ import static org.junit.Assert.assertEquals;
 public class WarlockTest {
 
     Warlock warlock;
+    ISpell shadowBolt;
+    ISpell conflagarate;
+    ISpell detectMagic;
 
     @Before
     public void before() {
+
+        shadowBolt = new ShadowBolt();
+        conflagarate = new Conflagarate();
+        detectMagic = new DetectMagic();
         warlock = new Warlock(Familiar.VOIDLING, 90, 311, "Maliketh", "Obsidianite", "n/a");
     }
 
@@ -26,10 +37,10 @@ public class WarlockTest {
 
     @Test
     public void hasSpells() {
-        warlock.addSpell(Spell.SHADOWBOLT);
-        warlock.addSpell(Spell.CONFLAGARATE);
-        warlock.addSpell(Spell.DETECTMAGIC);
-        assertEquals(Arrays.asList(Spell.SHADOWBOLT, Spell.CONFLAGARATE, Spell.DETECTMAGIC), warlock.getSpells());
+        warlock.addSpell(shadowBolt);
+        warlock.addSpell(conflagarate);
+        warlock.addSpell(detectMagic);
+        assertEquals(Arrays.asList(shadowBolt, conflagarate, detectMagic), warlock.getSpells());
     }
 
     @Test

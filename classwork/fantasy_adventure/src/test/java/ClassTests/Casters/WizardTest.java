@@ -1,8 +1,11 @@
 package ClassTests.Casters;
 
+import Behaviours.ISpell;
 import Classes.Casters.Wizard;
 import Familiars.Familiar;
-import Spells.Spell;
+import Spells.FireBall;
+import Spells.LightningStrike;
+import Spells.MagicMissile;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,9 +16,16 @@ import static org.junit.Assert.assertEquals;
 public class WizardTest {
 
     Wizard wizard;
+    ISpell fireBall;
+    ISpell lightningStrike;
+    ISpell magicMissile;
 
     @Before
     public void before() {
+        fireBall = new FireBall();
+        lightningStrike = new LightningStrike();
+        magicMissile = new MagicMissile();
+
         wizard = new Wizard(Familiar.DRAGON, 80, 88, "Merl", "Human", "male");
     }
 
@@ -26,10 +36,10 @@ public class WizardTest {
 
     @Test
     public void hasSpells() {
-        wizard.addSpell(Spell.FIREBALL);
-        wizard.addSpell(Spell.LIGHTNINGSTRIKE);
-        wizard.addSpell(Spell.MAGICMISSILE);
-        assertEquals(Arrays.asList(Spell.FIREBALL, Spell.LIGHTNINGSTRIKE, Spell.MAGICMISSILE), wizard.getSpells());
+        wizard.addSpell(fireBall);
+        wizard.addSpell(lightningStrike);
+        wizard.addSpell(magicMissile);
+        assertEquals(Arrays.asList(fireBall, lightningStrike, magicMissile), wizard.getSpells());
     }
 
     @Test

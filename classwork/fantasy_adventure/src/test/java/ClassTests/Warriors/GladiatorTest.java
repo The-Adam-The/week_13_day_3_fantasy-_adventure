@@ -1,7 +1,8 @@
 package ClassTests.Warriors;
 
 import Classes.Warriors.Gladiator;
-import Weapons.Weapon;
+import Weapons.Flail;
+import Weapons.Spear;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,20 +11,26 @@ import static org.junit.Assert.assertEquals;
 public class GladiatorTest {
 
     Gladiator gladiator;
+    Spear spear;
 
     @Before
     public void before() {
-        gladiator = new Gladiator(Weapon.SPEAR, 140, 22, "Pantheon", "Numean", "Male");
+        spear = new Spear();
+        gladiator = new Gladiator(spear, 140, 22, "Pantheon", "Numean", "Male");
     }
 
     @Test
     public void hasWeapon() {
-        assertEquals(Weapon.SPEAR ,gladiator.getWeapon());
+        assertEquals(spear ,gladiator.getWeapon());
     }
 
     @Test
-    public void canChangeWeapon() {gladiator.changeWeapon(Weapon.FLAIL);
-        assertEquals(Weapon.FLAIL, gladiator.getWeapon());
+    public void canChangeWeapon() {
+        Flail flail;
+
+        flail = new Flail();
+        gladiator.changeWeapon(flail);
+        assertEquals(flail, gladiator.getWeapon());
     }
 
 }

@@ -1,8 +1,10 @@
 package ClassTests.Warriors;
 
 import Classes.Warriors.Barbarian;
-import Weapons.Weapon;
-import org.junit.Assert;
+import Classes.Warriors.Gladiator;
+import Weapons.Axe;
+import Weapons.Club;
+import Weapons.Spear;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,21 +13,26 @@ import static org.junit.Assert.assertEquals;
 public class BarbarianTest {
 
     Barbarian barbarian;
+    Club club;
 
     @Before
     public void before() {
-        barbarian = new Barbarian(Weapon.CLUB, 150, 32, "Golian", "Orc", "female");
+        club = new Club();
+        barbarian = new Barbarian(club, 150, 32, "Golian", "Orc", "female");
     }
 
     @Test
     public void hasWeapon() {
-        assertEquals(Weapon.CLUB, barbarian.getWeapon());
+        assertEquals(club, barbarian.getWeapon());
     }
 
     @Test
     public void canChangeWeapon() {
-        barbarian.changeWeapon(Weapon.AXE);
-        assertEquals(Weapon.AXE, barbarian.getWeapon());
+        Axe axe;
+
+        axe = new Axe();
+        barbarian.changeWeapon(axe);
+        assertEquals(axe, barbarian.getWeapon());
     }
 
     @Test
@@ -51,5 +58,17 @@ public class BarbarianTest {
     @Test
     public void hasGender() {
         assertEquals("female", barbarian.getGender());
+    }
+
+    @Test
+    public void doesDamage() {
+        Spear spear;
+        spear = new Spear();
+
+        Gladiator gladiator;
+        gladiator = new Gladiator(spear, 140, 22, "Pantheon", "Numean", "Male");
+
+
+
     }
 }

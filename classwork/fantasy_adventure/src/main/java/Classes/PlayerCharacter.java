@@ -1,8 +1,12 @@
 package Classes;
 
-public abstract class PlayerCharacter {
+import Behaviours.IAttack;
+import Behaviours.ITakeDamage;
+
+public abstract class PlayerCharacter implements ITakeDamage {
 
     private double totalHealth;
+    protected double currentHealth;
     private int age;
     private String name;
     private String race;
@@ -10,6 +14,7 @@ public abstract class PlayerCharacter {
 
     public PlayerCharacter(double totalHealth, int age, String name, String race, String gender) {
         this.totalHealth = totalHealth;
+        this.currentHealth =totalHealth;
         this.age = age;
         this.name = name;
         this.race = race;
@@ -36,6 +41,14 @@ public abstract class PlayerCharacter {
         return this.gender;
     }
 
+    public double getCurrentHealth() {
+        return this.currentHealth;
+    }
 
+    public void takeDamage(double damageAmount) {
+        this.currentHealth -= damageAmount;
+    }
 
 }
+
+

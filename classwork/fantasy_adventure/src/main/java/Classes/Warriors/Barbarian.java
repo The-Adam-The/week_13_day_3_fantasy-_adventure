@@ -1,14 +1,14 @@
 package Classes.Warriors;
 
-import Weapons.Weapon;
+import Behaviours.IAttack;
 
 public class Barbarian extends Warrior {
 
-    private Weapon weapon;
 
-    public Barbarian(Weapon weapon, double totalHealth, int age, String name, String race, String gender) {
+    public Barbarian(IAttack weapon, double totalHealth, int age, String name, String race, String gender) {
         super(weapon, totalHealth, age, name, race, gender);
     }
+
 
 
 }

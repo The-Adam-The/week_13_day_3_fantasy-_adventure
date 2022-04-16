@@ -1,7 +1,8 @@
 package ClassTests.Warriors;
 
 import Classes.Warriors.Knight;
-import Weapons.Weapon;
+import Weapons.Longsword;
+import Weapons.Mace;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,20 +11,26 @@ import static org.junit.Assert.assertEquals;
 
 public class KnightTest {
     Knight knight;
+    Mace mace;
 
     @Before
     public void before() {
-        knight = new Knight(Weapon.MACE, 140, 24, "Arthur", "Human", "Male");
+        mace = new Mace();
+        knight = new Knight(mace, 140, 24, "Arthur", "Human", "Male");
     }
 
     @Test
     public void hasWeapon() {
-        assertEquals(Weapon.MACE, knight.getWeapon());
+        assertEquals(mace, knight.getWeapon());
     }
 
     @Test
     public void canChangeWeapon() {
-        knight.changeWeapon(Weapon.LONGSWORD);
-        assertEquals(Weapon.LONGSWORD, knight.getWeapon());
+        Longsword longsword;
+
+        longsword = new Longsword();
+
+        knight.changeWeapon(longsword);
+        assertEquals(longsword, knight.getWeapon());
     }
 }

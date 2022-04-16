@@ -1,22 +1,29 @@
 package Classes.Warriors;
 
+import Behaviours.IAttack;
+import Behaviours.ITakeDamage;
 import Classes.PlayerCharacter;
-import Weapons.Weapon;
 
 public abstract class Warrior extends PlayerCharacter {
 
-    private Weapon weapon;
+    private IAttack weapon;
 
-    public Warrior(Weapon weapon, double totalHealth, int age, String name, String race, String gender) {
+    public Warrior(IAttack weapon, double totalHealth, int age, String name, String race, String gender) {
         super(totalHealth, age, name, race, gender);
         this.weapon = weapon;
     }
 
-    public Weapon getWeapon() {
+    public IAttack getWeapon() {
         return this.weapon;
     }
 
-    public void changeWeapon(Weapon weapon) {
+    public void changeWeapon(IAttack weapon) {
         this.weapon = weapon;
     }
+
+
+    public void attack(ITakeDamage target) {
+        this.weapon.attack(target);
+    }
+
 }
