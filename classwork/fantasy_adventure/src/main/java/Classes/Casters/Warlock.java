@@ -7,4 +7,5 @@ public class Warlock extends Caster {
     public Warlock(Familiar familiar) {
         super(familiar);
     }
+
 }

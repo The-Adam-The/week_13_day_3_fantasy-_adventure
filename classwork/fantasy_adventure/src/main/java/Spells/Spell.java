@@ -1,0 +1,13 @@
+package Spells;
+
+public enum Spell {
+    FIREBALL,
+    MAGICMISSILE,
+    DETECTMAGIC,
+    TELEKINESIS,
+    CONFLAGARATE,
+    SHADOWBOLT,
+    LIGHTNINGSTRIKE,
+    IMPLODE,
+    BLINDINGLIGHT
+}
